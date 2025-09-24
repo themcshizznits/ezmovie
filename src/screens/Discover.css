@@ -1,0 +1,82 @@
+.discover-screen {
+  background-color: #121212;
+  color: white;
+  padding: 1.5rem;
+  font-family: sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.discover-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.5rem;
+}
+
+.latest-releases {
+  background-color: #1e1e1e;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.movie-placeholder {
+  height: 150px;
+  background-color: #333;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.add-button {
+  background-color: #444;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.popular-genres,
+.recommendations {
+  background-color: #1e1e1e;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.genre-buttons,
+.recommend-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.genre-buttons button,
+.recommend-buttons button {
+  background-color: #333;
+  color: white;
+  border: none;
+  padding: 1rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  flex: 1;
+}
+
+.bottom-nav {
+  display: flex;
+  justify-content: space-around;
+  padding: 1rem 0;
+  background-color: #1a1a1a;
+  border-top: 1px solid #333;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}

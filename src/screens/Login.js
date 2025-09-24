@@ -1,7 +1,16 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Login.css';
 
 function Login() {
+  const navigate = useNavigate();
+
+  const handleLogin = (e) => {
+    e.preventDefault(); // Prevent page reload
+    // You can add validation or auth logic here later
+    navigate('/home'); // Navigate to Home screen
+  };
+
   return (
     <div className="login-screen">
       <div className="logo-placeholder">O</div>
@@ -9,7 +18,7 @@ function Login() {
       <h1 className="title">EzTechMovie</h1>
       <p className="tagline">Manage your movie queue effortlessly</p>
 
-      <form className="login-form">
+      <form className="login-form" onSubmit={handleLogin}>
         <label htmlFor="email">📧 Email</label>
         <input type="email" id="email" placeholder="Enter your email" />
 
