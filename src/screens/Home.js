@@ -1,7 +1,10 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Home.css';
 
 function Home() {
+  const navigate = useNavigate();
+
   return (
     <div className="home-screen">
       <header className="home-header">
@@ -11,6 +14,11 @@ function Home() {
           <span role="img" aria-label="mail">📩</span>
         </div>
       </header>
+
+      {/* 🚪 Log Out Button */}
+      <button className="logout-button" onClick={() => navigate('/')}>
+        🚪 Log Out
+      </button>
 
       <section className="watchlist-section">
         <h3>Continue Your Watchlist</h3>
@@ -41,10 +49,10 @@ function Home() {
       </section>
 
       <nav className="bottom-nav">
-        <span>🏠</span>
-        <span>🔍</span>
-        <span>⬇️</span>
-        <span>👤</span>
+        <span onClick={() => navigate('/home')} style={{ cursor: 'pointer' }}>🏠</span>
+        <span onClick={() => navigate('/discover')} style={{ cursor: 'pointer' }}>🔍</span>
+        <span onClick={() => navigate('/queue')} style={{ cursor: 'pointer' }}>⬇️</span>
+        <span onClick={() => navigate('/profile')} style={{ cursor: 'pointer' }}>👤</span>
       </nav>
     </div>
   );

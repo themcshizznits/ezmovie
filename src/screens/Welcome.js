@@ -8,18 +8,18 @@ function Welcome() {
   return (
     <div className="welcome-screen">
       <div className="header">
-        <span role="img" aria-label="home">🏠</span> Welcome
+        <h2>Welcome to</h2>
       </div>
 
       <div className="image-placeholder">
-        <div className="placeholder-box">X</div>
+        <div className="placeholder-box">🎬</div>
       </div>
 
-      <h1 className="title">EzTechMovie</h1>
-      <p className="tagline">Your Movie Queue</p>
+      <h1 className="title flicker">EzTechMovie</h1>
+      <p className="tagline">Your Cinematic Universe Awaits</p>
 
-      <button className="action-button" onClick={() => navigate('/login')}>
-        ⭐ Start
+      <button className="action-button pulse" onClick={() => navigate('/login')}>
+        ⭐ Start Watching
       </button>
     </div>
   );

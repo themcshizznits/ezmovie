@@ -1,44 +1,83 @@
 .welcome-screen {
-  background-color: #121212;
-  color: white;
+  background-color: #0d0d0d;
+  color: #fff;
+  font-family: 'Segoe UI', sans-serif;
   text-align: center;
   padding: 2rem;
-  height: 100vh;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
 }
 
 .header {
-  font-size: 1.2rem;
-  margin-bottom: 1rem;
-}
-
-.image-placeholder .placeholder-box {
-  width: 150px;
-  height: 150px;
-  border: 2px dashed white;
-  margin: 0 auto 1rem;
+  font-size: 1.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2rem;
+  gap: 0.5rem;
+  color: #ffcc00;
+}
+
+.image-placeholder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.placeholder-box {
+  font-size: 4rem;
+  background-color: #1a1a1a;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 0 20px #ffcc00;
 }
 
 .title {
-  font-family: 'Arial Black', sans-serif;
-  font-size: 2rem;
-  margin-top: 1rem;
+  font-size: 3rem;
+  font-weight: bold;
+  color: #ffcc00;
 }
 
 .tagline {
-  font-size: 1rem;
+  font-size: 1.2rem;
   color: #ccc;
+  margin-bottom: 1rem;
 }
 
 .action-button {
-  margin-top: 2rem;
-  background-color: #333;
+  background-color: #ffcc00;
+  color: #000;
   border: none;
-  padding: 1rem;
+  padding: 0.75rem 2rem;
+  font-size: 1.2rem;
   border-radius: 8px;
-  font-size: 1.5rem;
   cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.action-button:hover {
+  transform: scale(1.05);
+  background-color: #ffd633;
+}
+
+/* ✨ Animation Effects */
+.flicker {
+  animation: flicker 1.5s infinite alternate;
+}
+
+@keyframes flicker {
+  0% { opacity: 1; }
+  100% { opacity: 0.85; }
+}
+
+.pulse {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(255, 204, 0, 0.7); }
+  70% { box-shadow: 0 0 0 10px rgba(255, 204, 0, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 204, 0, 0); }
 }

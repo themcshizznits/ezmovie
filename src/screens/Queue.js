@@ -1,7 +1,10 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom'; // ✅ Add this
 import './Queue.css';
 
 function Queue() {
+  const navigate = useNavigate(); // ✅ Add this
+
   return (
     <div className="queue-screen">
       <header className="queue-header">
@@ -51,11 +54,11 @@ function Queue() {
       </section>
 
       <nav className="bottom-nav">
-        <span>🏠</span>
-        <span>📋</span>
-        <span>➕</span>
-        <span>👤</span>
-        <span>⚙️</span>
+        <span onClick={() => navigate('/home')} style={{ cursor: 'pointer' }}>🏠</span>
+        <span onClick={() => navigate('/queue')} style={{ cursor: 'pointer' }}>📋</span>
+        <span onClick={() => navigate('/discover')} style={{ cursor: 'pointer' }}>➕</span>
+        <span onClick={() => navigate('/profile')} style={{ cursor: 'pointer' }}>👤</span>
+        <span onClick={() => navigate('/about')} style={{ cursor: 'pointer' }}>⚙️</span>
       </nav>
     </div>
   );

@@ -37,10 +37,10 @@ function Discover() {
 
       <nav className="bottom-nav">
         <span onClick={() => navigate('/home')} style={{ cursor: 'pointer' }}>🏠</span>
-        <span>🔍</span>
-        <span>➕</span>
-        <span>🔔</span>
-        <span>👤</span>
+        <span onClick={() => navigate('/discover')} style={{ cursor: 'pointer' }}>🔍</span>
+        <span onClick={() => navigate('/queue')} style={{ cursor: 'pointer' }}>➕</span>
+        <span onClick={() => navigate('/about')} style={{ cursor: 'pointer' }}>🔔</span>
+        <span onClick={() => navigate('/profile')} style={{ cursor: 'pointer' }}>👤</span>
       </nav>
     </div>
   );

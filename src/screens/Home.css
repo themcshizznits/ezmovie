@@ -20,6 +20,22 @@
   font-size: 1.5rem;
 }
 
+.logout-button {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  align-self: flex-end;
+  transition: background-color 0.3s ease;
+}
+
+.logout-button:hover {
+  background-color: #e60000;
+}
+
 .watchlist-section,
 .recommend-section,
 .featured-section {

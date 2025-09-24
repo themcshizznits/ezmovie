@@ -1,7 +1,10 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom'; // ✅ Add this
 import './About.css';
 
 function About() {
+  const navigate = useNavigate(); // ✅ Add this
+
   return (
     <div className="about-screen">
       <header className="about-header">
@@ -32,9 +35,9 @@ function About() {
       </section>
 
       <nav className="bottom-nav">
-        <span>🏠</span>
-        <span>🔍</span>
-        <span>👤</span>
+        <span onClick={() => navigate('/home')} style={{ cursor: 'pointer' }}>🏠</span>
+        <span onClick={() => navigate('/discover')} style={{ cursor: 'pointer' }}>🔍</span>
+        <span onClick={() => navigate('/profile')} style={{ cursor: 'pointer' }}>👤</span>
       </nav>
     </div>
   );

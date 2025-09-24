@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // ✅ Add this
 import './Profile.css';
 
 function Profile() {
+  const navigate = useNavigate(); // ✅ Add this
   const [activeTab, setActiveTab] = useState('watchlist');
 
   const movies = {
@@ -66,10 +68,10 @@ function Profile() {
       </section>
 
       <nav className="bottom-nav">
-        <span>🏠</span>
-        <span>🔍</span>
-        <span>🧭</span>
-        <span>🔔</span>
+        <span onClick={() => navigate('/home')} style={{ cursor: 'pointer' }}>🏠</span>
+        <span onClick={() => navigate('/discover')} style={{ cursor: 'pointer' }}>🔍</span>
+        <span onClick={() => navigate('/queue')} style={{ cursor: 'pointer' }}>🧭</span>
+        <span onClick={() => navigate('/about')} style={{ cursor: 'pointer' }}>🔔</span>
       </nav>
     </div>
   );
