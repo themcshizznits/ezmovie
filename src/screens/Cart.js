@@ -4,11 +4,24 @@ import { useNavigate } from 'react-router-dom';
 import './Cart.css';
 
 function Cart() {
-  const { cartItems, removeFromCart, updateCartItemAmount } = useContext(CartContext);
+  const {
+    cartItems,
+    removeFromCart,
+    updateCartItemAmount,
+    warning,
+    showWarning,
+    triggerWarning
+  } = useContext(CartContext);
+
   const navigate = useNavigate();
   const totalPrice = cartItems.reduce((sum, item) => sum + item.price * item.amount, 0);
 
-  function updateAmount(id, newAmount) {
+  function updateAmount(id, newAmount, type) {
+    if (type === "subscription" && newAmount > 1) {
+      triggerWarning("⚠️ Subscription quantity is limited to one.");
+      return;
+    }
+
     if (newAmount >= 1) {
       updateCartItemAmount(id, newAmount);
     }
@@ -17,6 +30,12 @@ function Cart() {
   return (
     <div className="cart-screen">
       <h2>🛒 Your Cart</h2>
+
+      {showWarning && (
+        <p className="warning-label" key={Date.now()}>
+          {warning}
+        </p>
+      )}
 
       {cartItems.length === 0 ? (
         <div className="empty-cart">
@@ -35,9 +54,18 @@ function Cart() {
                 <span>${item.price} × {item.amount}</span>
 
                 <div className="quantity-control">
-                  <button onClick={() => updateAmount(item.id, item.amount - 1)} disabled={item.amount <= 1}>➖</button>
+                  <button
+                    onClick={() => updateAmount(item.id, item.amount - 1, item.type)}
+                    disabled={item.amount <= 1}
+                  >
+                    ➖
+                  </button>
                   <span>{item.amount}</span>
-                  <button onClick={() => updateAmount(item.id, item.amount + 1)}>➕</button>
+                  <button
+                    onClick={() => updateAmount(item.id, item.amount + 1, item.type)}
+                  >
+                    ➕
+                  </button>
                 </div>
               </div>
 

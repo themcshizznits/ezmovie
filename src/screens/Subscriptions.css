@@ -17,6 +17,19 @@ h2 {
   margin-bottom: 30px;
 }
 
+/* ⚠️ Warning Label */
+.warning-label {
+  color: #ff4d4d;
+  background-color: #111;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  text-align: center;
+  box-shadow: 0 0 8px rgba(255, 77, 77, 0.4);
+}
+
+/* Subscription Grid */
 .subscription-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -56,7 +69,7 @@ h2 {
   margin-bottom: 12px;
 }
 
-/* 💛 Yellow Glowy Add Button */
+/* 💛 Add to Cart Button */
 .add-button {
   background: linear-gradient(135deg, #f9ca24, #f6e58d);
   color: #222;

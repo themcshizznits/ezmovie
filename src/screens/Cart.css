@@ -11,6 +11,33 @@ h2 {
   margin-bottom: 20px;
 }
 
+/* ⚠️ Warning Label */
+.warning-label {
+  color: #ff4d4d;
+  background-color: #111;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  text-align: center;
+  box-shadow: 0 0 8px rgba(255, 77, 77, 0.4);
+  animation: shake 0.3s ease, fadeOut 2s ease forwards;
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  50% { transform: translateX(4px); }
+  75% { transform: translateX(-4px); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes fadeOut {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* 🛒 Empty Cart */
 .empty-cart {
   text-align: center;
   margin-top: 40px;
@@ -51,6 +78,7 @@ h2 {
   box-shadow: 0 0 18px rgba(249, 202, 36, 0.8);
 }
 
+/* 🧾 Cart Items */
 .cart-list {
   list-style: none;
   padding: 0;
@@ -80,7 +108,7 @@ h2 {
   color: #f6e58d;
 }
 
-/* 💛 Quantity Controls */
+/* ➕➖ Quantity Controls */
 .quantity-control {
   display: flex;
   align-items: center;
@@ -110,6 +138,7 @@ h2 {
   color: #f6e58d;
 }
 
+/* 💔 Remove Button */
 .cute-remove-button {
   background: linear-gradient(135deg, #f6e58d, #f9ca24);
   color: #222;
@@ -128,12 +157,14 @@ h2 {
   box-shadow: 0 0 14px rgba(249, 202, 36, 0.6);
 }
 
+/* 💰 Total Price */
 .total-price {
   font-size: 1.4rem;
   color: #f9ca24;
   margin-bottom: 20px;
 }
 
+/* ⬅️ Back Button */
 .back-home-button {
   background: linear-gradient(135deg, #f9ca24, #f6e58d);
   color: #222;

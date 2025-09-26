@@ -4,9 +4,32 @@ export const CartContext = createContext();
 
 export function CartProvider({ children }) {
   const [cartItems, setCartItems] = useState([]);
+  const [warning, setWarning] = useState(null);
+  const [showWarning, setShowWarning] = useState(false);
+
+  function triggerWarning(message) {
+    setWarning(message);
+    setShowWarning(true);
+    setTimeout(() => setShowWarning(false), 2000);
+  }
 
   function addToCart(item) {
     const existing = cartItems.find(i => i.id === item.id);
+
+    if (item.type === "subscription") {
+      const existingSubscription = cartItems.find(i => i.type === "subscription");
+
+      if (existingSubscription && existingSubscription.id !== item.id) {
+        triggerWarning("⚠️ Only one subscription allowed at a time.");
+        return;
+      }
+
+      if (existing) {
+        triggerWarning("⚠️ Subscription quantity is limited to one.");
+        return;
+      }
+    }
+
     if (existing) {
       setCartItems(prev =>
         prev.map(i =>
@@ -16,6 +39,9 @@ export function CartProvider({ children }) {
     } else {
       setCartItems(prev => [...prev, { ...item, amount: 1 }]);
     }
+
+    setWarning(null);
+    setShowWarning(false);
   }
 
   function removeFromCart(id) {
@@ -23,15 +49,33 @@ export function CartProvider({ children }) {
   }
 
   function updateCartItemAmount(id, newAmount) {
+    const item = cartItems.find(i => i.id === id);
+
+    if (item?.type === "subscription" && newAmount > 1) {
+      triggerWarning("⚠️ You can only have one subscription.");
+      return;
+    }
+
     setCartItems(prev =>
-      prev.map(item =>
-        item.id === id ? { ...item, amount: newAmount } : item
+      prev.map(i =>
+        i.id === id ? { ...i, amount: newAmount } : i
       )
     );
+
+    setWarning(null);
+    setShowWarning(false);
   }
 
   return (
-    <CartContext.Provider value={{ cartItems, addToCart, removeFromCart, updateCartItemAmount }}>
+    <CartContext.Provider value={{
+      cartItems,
+      addToCart,
+      removeFromCart,
+      updateCartItemAmount,
+      warning,
+      showWarning,
+      triggerWarning
+    }}>
       {children}
     </CartContext.Provider>
   );

@@ -1,3 +1,4 @@
+// src/data.js
 const list = [
   {
     id: 1,
@@ -6,6 +7,7 @@ const list = [
     price: 4.99,
     img: "https://creazilla-store.fra1.digitaloceanspaces.com/icons/3231802/ticket-icon-md.png",
     amount: 1,
+    type: "subscription"
   },
   {
     id: 2,
@@ -14,6 +16,7 @@ const list = [
     price: 9.99,
     img: "https://creazilla-store.fra1.digitaloceanspaces.com/icons/3237088/ticket-icon-md.png",
     amount: 1,
+    type: "subscription"
   },
   {
     id: 3,
@@ -22,6 +25,7 @@ const list = [
     price: 12.99,
     img: "https://creazilla-store.fra1.digitaloceanspaces.com/icons/3258730/ticket-icon-md.png",
     amount: 1,
+    type: "subscription"
   },
   {
     id: 4,
@@ -30,6 +34,7 @@ const list = [
     price: 2.99,
     img: "https://cdn.creazilla.com/photos/3730387/social-media-1908766_1280-photo-md.jpeg",
     amount: 1,
+    type: "subscription"
   },
   {
     id: 5,
@@ -38,6 +43,7 @@ const list = [
     price: 25.99,
     img: "https://cdn.creazilla.com/cliparts/5548105/tie-dye-t-shirt-clipart-md.png",
     amount: 2000,
+    type: "accessory"
   },
   {
     id: 6,
@@ -46,6 +52,7 @@ const list = [
     price: 25.99,
     img: "https://cdn.creazilla.com/cliparts/7487471/tie-dye-t-shirt-clipart-md.png",
     amount: 1400,
+    type: "accessory"
   },
   {
     id: 7,
@@ -54,6 +61,7 @@ const list = [
     price: 25.99,
     img: "https://cdn.creazilla.com/cliparts/5632313/tie-dye-t-shirt-clipart-sm.png",
     amount: 1090,
+    type: "accessory"
   },
   {
     id: 8,
@@ -62,7 +70,8 @@ const list = [
     price: 20.99,
     img: "https://cdn.creazilla.com/9ef436f9e9e4cf2733c43b7e61d327d2.jpeg",
     amount: 10090,
-  },
+    type: "accessory"
+  }
 ];
 
 export default list;

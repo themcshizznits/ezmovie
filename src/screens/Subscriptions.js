@@ -1,18 +1,24 @@
-import React from 'react';
-import list from './data'; // your subscription data
-import { useContext } from 'react';
+import React, { useContext } from 'react';
+import list from './data';
 import { CartContext } from './CartContext';
 import { useNavigate } from 'react-router-dom';
-import './Subscriptions.css';
+import './Subscriptions.css'; // Your original styles
+import './Cart.css'; // Reuse warning-label animation
 
 function Subscriptions() {
-  const { addToCart } = useContext(CartContext);
+  const { addToCart, warning, showWarning } = useContext(CartContext);
   const navigate = useNavigate();
 
   return (
     <div className="subscriptions-screen">
       <h2>📦 Subscriptions</h2>
       <p className="subtitle">Choose your cinematic companion. Add a subscription to begin your journey.</p>
+
+      {showWarning && (
+        <p className="warning-label" key={Date.now()}>
+          {warning}
+        </p>
+      )}
 
       <div className="subscription-grid">
         {list.map(item => (
