@@ -1,90 +1,148 @@
+/* Home Screen Layout */
 .home-screen {
-  background-color: #121212;
-  color: white;
-  padding: 1.5rem;
-  font-family: sans-serif;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
+  padding: 20px;
+  background-color: #000;
+  color: #fff;
+  font-family: 'Segoe UI', sans-serif;
 }
 
+/* Header Section */
 .home-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 20px;
 }
 
 .header-icons span {
-  margin-left: 1rem;
+  margin-left: 10px;
   font-size: 1.5rem;
 }
 
+/* Log Out Button */
 .logout-button {
   background-color: #ff4d4d;
-  color: white;
+  color: #fff;
   border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
-  font-size: 1rem;
-  cursor: pointer;
-  align-self: flex-end;
-  transition: background-color 0.3s ease;
-}
-
-.logout-button:hover {
-  background-color: #e60000;
-}
-
-.watchlist-section,
-.recommend-section,
-.featured-section {
-  background-color: #1e1e1e;
-  padding: 1rem;
   border-radius: 8px;
+  padding: 10px 16px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 20px;
 }
 
-.watchlist-buttons button,
-.recommend-boxes .box {
+/* 💛 Yellow Glowy Buttons */
+.quick-links {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+.quick-links button {
+  background: linear-gradient(135deg, #f9ca24, #f6e58d);
+  color: #222;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  box-shadow: 0 0 12px rgba(249, 202, 36, 0.6);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.quick-links button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 18px rgba(249, 202, 36, 0.8);
+}
+
+.quick-links button:active {
+  transform: scale(0.98);
+}
+
+/* Watchlist Section */
+.watchlist-section {
+  margin-bottom: 30px;
+}
+
+.watchlist-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.watchlist-buttons button {
   background-color: #333;
-  color: white;
+  color: #fff;
   border: none;
-  padding: 1rem;
-  margin: 0.5rem;
   border-radius: 8px;
-  font-size: 1rem;
-  width: 100%;
+  padding: 10px;
+  width: 100px;
+  text-align: center;
+  font-size: 0.9rem;
 }
 
-.see-all,
-.explore-button {
-  margin-top: 1rem;
+.see-all {
+  margin-top: 10px;
   background-color: #555;
+  color: #fff;
   border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 5px;
-  color: white;
+  padding: 8px 12px;
+  border-radius: 6px;
   cursor: pointer;
 }
 
+/* Recommendation Section */
+.recommend-section {
+  margin-bottom: 30px;
+}
+
+.recommend-boxes {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.recommend-boxes .box {
+  background-color: #222;
+  color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  flex: 1;
+  text-align: center;
+}
+
+.explore-button {
+  margin-top: 10px;
+  background-color: #1e90ff;
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* Featured Films Section */
 .featured-section ul {
   list-style: none;
   padding: 0;
 }
 
 .featured-section li {
-  margin: 0.5rem 0;
-  font-size: 1rem;
+  margin-bottom: 10px;
+  background-color: #111;
+  padding: 10px;
+  border-radius: 6px;
 }
 
+/* Bottom Navigation */
 .bottom-nav {
   display: flex;
   justify-content: space-around;
-  padding: 1rem 0;
-  background-color: #1a1a1a;
-  border-top: 1px solid #333;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  margin-top: 40px;
+  font-size: 1.5rem;
+}
+
+.bottom-nav span {
+  cursor: pointer;
 }

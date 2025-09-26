@@ -15,10 +15,16 @@ function Home() {
         </div>
       </header>
 
-      {/* 🚪 Log Out Button */}
       <button className="logout-button" onClick={() => navigate('/')}>
         🚪 Log Out
       </button>
+
+      {/* 💛 Yellow Glowy Buttons */}
+      <section className="quick-links">
+        <button onClick={() => navigate('/cart')}>🛒 View Cart</button>
+        <button onClick={() => navigate('/subscriptions')}>📦 Subscriptions</button>
+        <button onClick={() => navigate('/queue')}>📋 My Queue</button>
+      </section>
 
       <section className="watchlist-section">
         <h3>Continue Your Watchlist</h3>
@@ -53,6 +59,7 @@ function Home() {
         <span onClick={() => navigate('/discover')} style={{ cursor: 'pointer' }}>🔍</span>
         <span onClick={() => navigate('/queue')} style={{ cursor: 'pointer' }}>⬇️</span>
         <span onClick={() => navigate('/profile')} style={{ cursor: 'pointer' }}>👤</span>
+        <span onClick={() => navigate('/cart')} style={{ cursor: 'pointer' }}>🛒</span>
       </nav>
     </div>
   );
