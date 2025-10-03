@@ -1,0 +1,105 @@
+.search-screen {
+  padding: 2rem;
+  background-color: #121212;
+  color: white;
+  font-family: 'Segoe UI', sans-serif;
+  text-align: center;
+}
+
+.search-screen h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #00bfff;
+}
+
+.search-screen input {
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: 2px solid #00bfff;
+  border-radius: 8px;
+  background-color: #1e1e1e;
+  color: white;
+  width: 60%;
+  max-width: 400px;
+  margin-bottom: 1rem;
+}
+
+.search-screen button {
+  padding: 0.75rem 1.2rem;
+  font-size: 1rem;
+  background-color: #00bfff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0, 191, 255, 0.4);
+  transition: transform 0.2s ease;
+}
+
+.search-screen button:hover {
+  transform: scale(1.05);
+  background-color: #33ccff;
+}
+
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+  padding: 1rem;
+}
+
+.movie-card {
+  background-color: #1e1e1e;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  transition: box-shadow 0.3s ease;
+  text-align: left;
+}
+
+.movie-card:hover {
+  box-shadow: 0 6px 16px rgba(0, 191, 255, 0.3);
+}
+
+.movie-card img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+}
+
+.movie-card h3 {
+  font-size: 1.1rem;
+  margin: 0.5rem 0;
+  color: #00bfff;
+}
+
+.movie-card p {
+  font-size: 0.9rem;
+  margin: 0.3rem 0;
+  color: #ccc;
+}
+
+.movie-card button {
+  margin: 0.3rem;
+  padding: 0.4rem 0.8rem;
+  border: none;
+  border-radius: 6px;
+  background-color: #00bfff;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 0 6px rgba(0, 191, 255, 0.3);
+  transition: transform 0.2s ease;
+}
+
+.movie-card button:hover {
+  transform: scale(1.05);
+  background-color: #33ccff;
+}
+
+.movie-card button.disabled {
+  background-color: #444;
+  color: #aaa;
+  cursor: not-allowed;
+  box-shadow: none;
+}

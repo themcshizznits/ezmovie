@@ -1,9 +1,14 @@
+// src/screens/CartContext.js
 import React, { createContext, useState } from 'react';
 
 export const CartContext = createContext();
 
 export function CartProvider({ children }) {
-  const [cartItems, setCartItems] = useState([]);
+  const [cartItems, setCartItems] = useState(() => {
+    const saved = localStorage.getItem('cartItems');
+    return saved ? JSON.parse(saved) : [];
+  });
+
   const [warning, setWarning] = useState(null);
   const [showWarning, setShowWarning] = useState(false);
 
@@ -30,22 +35,22 @@ export function CartProvider({ children }) {
       }
     }
 
-    if (existing) {
-      setCartItems(prev =>
-        prev.map(i =>
+    const updated = existing
+      ? cartItems.map(i =>
           i.id === item.id ? { ...i, amount: i.amount + 1 } : i
         )
-      );
-    } else {
-      setCartItems(prev => [...prev, { ...item, amount: 1 }]);
-    }
+      : [...cartItems, { ...item, amount: 1 }];
 
+    setCartItems(updated);
+    localStorage.setItem('cartItems', JSON.stringify(updated));
     setWarning(null);
     setShowWarning(false);
   }
 
   function removeFromCart(id) {
-    setCartItems(prev => prev.filter(item => item.id !== id));
+    const updated = cartItems.filter(item => item.id !== id);
+    setCartItems(updated);
+    localStorage.setItem('cartItems', JSON.stringify(updated));
   }
 
   function updateCartItemAmount(id, newAmount) {
@@ -56,12 +61,12 @@ export function CartProvider({ children }) {
       return;
     }
 
-    setCartItems(prev =>
-      prev.map(i =>
-        i.id === id ? { ...i, amount: newAmount } : i
-      )
+    const updated = cartItems.map(i =>
+      i.id === id ? { ...i, amount: newAmount } : i
     );
 
+    setCartItems(updated);
+    localStorage.setItem('cartItems', JSON.stringify(updated));
     setWarning(null);
     setShowWarning(false);
   }
