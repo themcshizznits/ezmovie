@@ -23,7 +23,7 @@ function Search() {
   const [addedToFavorites, setAddedToFavorites] = useState([]);
 
   const handleSearch = async () => {
-    const apiKey = 'YOUR_TMDB_API_KEY'; // Replace with your actual TMDB key
+    const apiKey = '89aa06f354b61f27a59334a4a8cd8f83'; // Replace with your actual TMDB key
     const url = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${query}`;
 
     try {
