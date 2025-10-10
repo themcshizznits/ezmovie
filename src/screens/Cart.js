@@ -1,3 +1,4 @@
+// src/screens/Cart.js
 import React, { useContext } from 'react';
 import { CartContext } from './CartContext';
 import { useNavigate } from 'react-router-dom';
@@ -15,6 +16,7 @@ function Cart() {
 
   const navigate = useNavigate();
   const totalPrice = cartItems.reduce((sum, item) => sum + item.price * item.amount, 0);
+  const savedCards = JSON.parse(localStorage.getItem('savedCards')) || [];
 
   function updateAmount(id, newAmount, type) {
     if (type === "subscription" && newAmount > 1) {
@@ -25,6 +27,19 @@ function Cart() {
     if (newAmount >= 1) {
       updateCartItemAmount(id, newAmount);
     }
+  }
+
+  function handleCheckoutWithCard(index) {
+    alert(`✅ Checked out with card ending in ${savedCards[index].cardNumber.slice(-4)}!`);
+
+    // 💥 Clear localStorage
+    localStorage.removeItem('cartItems');
+
+    // 💥 Clear context state
+    cartItems.forEach(item => removeFromCart(item.id));
+
+    // 🏠 Redirect home
+    navigate('/home');
   }
 
   return (
@@ -78,6 +93,24 @@ function Cart() {
       )}
 
       <h3 className="total-price">Total: ${totalPrice.toFixed(2)}</h3>
+
+      <button onClick={() => navigate('/checkout')}>
+        💳 Proceed to Checkout
+      </button>
+
+      {savedCards.length > 0 && (
+        <div className="saved-card-checkout">
+          <h4>💳 Use Saved Card</h4>
+          {savedCards.map((card, index) => (
+            <div key={index}>
+              <p>Card ending in {card.cardNumber.slice(-4)}</p>
+              <button onClick={() => handleCheckoutWithCard(index)}>
+                🛍️ Confirm Purchase
+              </button>
+            </div>
+          ))}
+        </div>
+      )}
 
       <button className="back-home-button" onClick={() => navigate('/home')}>
         ⬅️ Back to Home

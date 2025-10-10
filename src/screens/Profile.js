@@ -19,6 +19,11 @@ function Profile() {
 
   const [newMovie, setNewMovie] = useState('');
 
+  const [savedCards, setSavedCards] = useState(() => {
+    const stored = localStorage.getItem('savedCards');
+    return stored ? JSON.parse(stored) : [];
+  });
+
   // 🧠 Watchlist actions
   const addMovie = () => {
     if (!newMovie.trim()) return;
@@ -60,6 +65,13 @@ function Profile() {
     const updated = favorites.filter((_, i) => i !== index);
     setFavorites(updated);
     localStorage.setItem('favorites', JSON.stringify(updated));
+  };
+
+  // 💳 Card Manager actions
+  const deleteCard = (index) => {
+    const updated = savedCards.filter((_, i) => i !== index);
+    setSavedCards(updated);
+    localStorage.setItem('savedCards', JSON.stringify(updated));
   };
 
   return (
@@ -128,6 +140,25 @@ function Profile() {
           </ul>
         )}
       </section>
+
+      {/* 💳 Card Manager */}
+      {savedCards.length > 0 && (
+        <section className="card-manager">
+          <h3>💳 Saved Cards</h3>
+          <ul>
+            {savedCards.map((card, index) => (
+              <li key={index}>
+                <span>•••• •••• •••• {card.cardNumber.slice(-4)}</span>
+                <span>{card.name} — {card.expiry}</span>
+                <button onClick={() => deleteCard(index)}>🗑️ Delete</button>
+              </li>
+            ))}
+          </ul>
+          <p className="card-limit-note">
+            {savedCards.length}/3 cards saved. Delete one to add a new card.
+          </p>
+        </section>
+      )}
 
       <nav className="bottom-nav">
         <span onClick={() => navigate('/home')} style={{ cursor: 'pointer' }}>🏠</span>
